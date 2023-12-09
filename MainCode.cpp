@@ -18,7 +18,7 @@ class Operation {
 public:
 	string From;
 	string To;
-	int AmountOfMomy;
+	double AmountOfMomy;
 };
 
 class Card {
