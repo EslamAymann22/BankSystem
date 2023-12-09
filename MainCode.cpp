@@ -76,9 +76,9 @@ public:
 
 class TypeCard {
 public:
-	bool Visa;
+	bool IsVisa;
 	int ID;
-	TypeCard(bool Visa = 0, int ID = 0) :Visa(Visa), ID(ID) {}
+	TypeCard(bool IsVisa = 0, int ID = 0) :IsVisa(IsVisa), ID(ID) {}
 };
 class Account {
 public:
@@ -121,7 +121,7 @@ void DownloadData() {
 		fin >> accounts.back().user.username;
 		fin >> accounts.back().user.password;
 		fin >> accounts.back().user.gmail;
-		fin >> accounts.back().DefultCard.Visa;
+		fin >> accounts.back().DefultCard.IsVisa;
 		fin >> accounts.back().DefultCard.ID;
 		fin >> accounts.back().IPA_Num;
 		fin >> accounts.back().NumberOfVisaCardsInAccount;
@@ -212,7 +212,7 @@ void UploadData() {
 		fout << it.user.username << '\n';
 		fout << it.user.password << '\n';
 		fout << it.user.gmail << '\n';
-		fout << it.DefultCard.Visa << ' ';
+		fout << it.DefultCard.IsVisa << ' ';
 		fout << it.DefultCard.ID << '\n';
 		fout << it.IPA_Num << '\n';
 		fout << it.MyVisaCards.size() << '\n';
@@ -451,12 +451,12 @@ public:
 		}
 		if (op == 1) {
 			AddVisaCard(accounts.back());
-			accounts.back().DefultCard.Visa = 1;
+			accounts.back().DefultCard.IsVisa = 1;
 			accounts.back().DefultCard.ID = accounts.back().MyVisaCards.back();
 		}
 		else {
 			AddMasterCard(accounts.back());
-			accounts.back().DefultCard.Visa = 0;
+			accounts.back().DefultCard.IsVisa = 0;
 			accounts.back().DefultCard.ID = accounts.back().MyMasterCards.back();
 
 		}
@@ -547,7 +547,7 @@ class CardServes {
 			if (card.size() == 6) {
 				for (Account& it : accounts) {
 					if (it.IPA_Num == card) {
-						if (it.DefultCard.Visa) {
+						if (it.DefultCard.IsVisa) {
 							return &visacards[it.DefultCard.ID];
 						}
 						else {
@@ -674,7 +674,7 @@ public:
 			if (mastercards[account.MyMasterCards[i]].CardNum == card->CardNum) {
 
 
-				if (account.MyMasterCards[i] == account.DefultCard.ID and account.DefultCard.Visa == 0) {
+				if (account.MyMasterCards[i] == account.DefultCard.ID and account.DefultCard.IsVisa == 0) {
 					if (account.MyVisaCards.size() > 0) {
 						account.DefultCard = TypeCard(1, account.MyVisaCards.front());
 					}
@@ -693,7 +693,7 @@ public:
 			if (visacards[account.MyVisaCards[i]].CardNum == card->CardNum) {
 
 
-				if (account.MyVisaCards[i] == account.DefultCard.ID and account.DefultCard.Visa == 1) {
+				if (account.MyVisaCards[i] == account.DefultCard.ID and account.DefultCard.IsVisa == 1) {
 
 					if (account.MyVisaCards.size() > 1) {
 						account.DefultCard = TypeCard(1, account.MyVisaCards.front());
