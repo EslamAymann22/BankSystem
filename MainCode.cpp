@@ -419,13 +419,13 @@ class AccountServes {
 		ch--;
 		TypeCard ret(0, -1);
 		if (ch < account.MyVisaCards.size()) {
-			ret.Visa = 1;
+			ret.IsVisa = 1;
 			ret.ID = account.MyVisaCards[ch];;
 			return ret;
 		}
 		else {
 			ch -= account.MyVisaCards.size();
-			ret.Visa = 0;
+			ret.IsVisa = 0;
 			ret.ID = account.MyMasterCards[ch];
 			return ret;
 		}
