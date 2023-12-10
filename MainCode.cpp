@@ -80,9 +80,8 @@ public:
 	int ID;
 	TypeCard(bool IsVisa = 0, int ID = 0) :IsVisa(IsVisa), ID(ID) {}
 };
-class Account {
+class Account : public User{
 public:
-	User user;
 	TypeCard DefultCard;
 	string IPA_Num;
 	int NumberOfVisaCardsInAccount;
@@ -118,9 +117,9 @@ void DownloadData() {
 	}
 	while (!fin.fail()) {
 		accounts.push_back(Account());
-		fin >> accounts.back().user.username;
-		fin >> accounts.back().user.password;
-		fin >> accounts.back().user.gmail;
+		fin >> accounts.back().username;
+		fin >> accounts.back().password;
+		fin >> accounts.back().gmail;
 		fin >> accounts.back().DefultCard.IsVisa;
 		fin >> accounts.back().DefultCard.ID;
 		fin >> accounts.back().IPA_Num;
@@ -209,9 +208,9 @@ void UploadData() {
 		fout.close();
 	}
 	for (auto it : accounts) {
-		fout << it.user.username << '\n';
-		fout << it.user.password << '\n';
-		fout << it.user.gmail << '\n';
+		fout << it.username << '\n';
+		fout << it.password << '\n';
+		fout << it.gmail << '\n';
 		fout << it.DefultCard.IsVisa << ' ';
 		fout << it.DefultCard.ID << '\n';
 		fout << it.IPA_Num << '\n';
@@ -303,7 +302,7 @@ class AccountServes {
 	}
 	bool UniqeGmail(string gmail) {
 		for (auto it : accounts) {
-			if (it.user.gmail == gmail)return 0;
+			if (it.gmail == gmail)return 0;
 		}
 		return 1;
 	}
@@ -331,15 +330,15 @@ class AccountServes {
 	}
 	bool UniqeUser(string user) {
 		for (auto it : accounts) {
-			if (it.user.username == user)return 0;
+			if (it.username == user)return 0;
 		}
 		return 1;
 	}
 	int chickAccount(string username, string pass) {
 		int ret = 0;
 		for (auto it : accounts) {
-			if (it.user.username == username) {
-				if (it.user.password == pass)return ret;
+			if (it.username == username) {
+				if (it.password == pass)return ret;
 				return -1;
 			}
 			ret++;
@@ -440,9 +439,9 @@ public:
 	}
 	int SignUp() {
 		accounts.push_back(Account());
-		cout << "Enter Username : "; accounts.back().user.username = GetUser();
-		cout << "Enter Gmail : "; accounts.back().user.gmail = GetGmail();
-		cout << "Enter password : "; cin >> accounts.back().user.password;
+		cout << "Enter Username : "; accounts.back().username = GetUser();
+		cout << "Enter Gmail : "; accounts.back().gmail = GetGmail();
+		cout << "Enter password : "; cin >> accounts.back().password;
 		int op = -1;
 		while (op != 1 and op != 2) {
 			cout << "1 : Visa Card\n";
@@ -644,7 +643,7 @@ public:
 			cout << "From : " << operations[it].From << "  To  " << operations[it].To << " Send " << operations[it].AmountOfMomy << " $\n";
 		}
 	}
-	void ShowMyTrans(Account& account,Card* card) {
+	void ShowMyTrans(Account& account, Card* card) {
 		for (auto it : account.MyTrans) {
 			if (operations[it].From != card->CardNum and operations[it].To != card->CardNum)continue;
 			cout << "From : " << operations[it].From << "  To  " << operations[it].To << " Send " << operations[it].AmountOfMomy << " $\n";
@@ -662,7 +661,7 @@ public:
 		cout << "ZIP code of card : " << card->ZipCode << '\n';
 		cout << "phone of card : " << card->PhoneNumber << '\n';
 		cout << "\n\n\n\nYour trans \n\n\n";
-		ShowMyTrans(account,card);
+		ShowMyTrans(account, card);
 	}
 	void RemoveCard(Account& account) {
 		if (account.MyMasterCards.size() + account.MyVisaCards.size() < 2) {
