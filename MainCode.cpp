@@ -826,7 +826,7 @@ void InstaPaySystem() {
 			}
 			else cout << "ERROR!!\n";
 		}
-		cout << " Your ID = " << cur_id << '\n' << '\n';//////////////////////////////////
+		
 		cout << "1 : Send mony \n";
 		cout << "2 : Change defult card in account \n";
 		cout << "3 : Add visa card \n";
