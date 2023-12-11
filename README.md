@@ -1,7 +1,9 @@
 # BankSystem
 
 
+Second project with C++.
 
+I tried to use some of topics of OOP.
 
 UML of System :
 
