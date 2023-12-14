@@ -188,12 +188,12 @@ BankSystem::BankSystem() {
 	if (s[0] == 'Y' || s[0] == 'y') {
 		AddData.add(accounts, visacards, mastercards, operations);
 	}
-	RunSystem();
+	//RunSystem();
 }
 
-void BankSystem::RunSystem() {
+void BankSystem::Run() {
 	int cur_id = -1;
-	while (1) {
+	while (true) {
 		while (cur_id < 0) {
 			cout << "LogIn  : 1\n";
 			cout << "SignUp : 2\n";
@@ -215,8 +215,8 @@ void BankSystem::RunSystem() {
 			else cout << "ERROR!!\n";
 		}
 
-		cout << "1 : Send mony \n";
-		cout << "2 : Change defult card in account \n";
+		cout << "1 : Send money \n";
+		cout << "2 : Change default card in account \n";
 		cout << "3 : Add visa card \n";
 		cout << "4 : Add master card \n";
 		cout << "5 : Remove card \n";

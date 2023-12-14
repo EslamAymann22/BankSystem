@@ -29,7 +29,7 @@ class BankSystem
 	CardServes CardSer;
 	AddDataToDataBase AddData;
 
-	void RunSystem();
+	void Run();
 
 	~BankSystem() {
 		UploadData();
