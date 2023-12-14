@@ -4,6 +4,6 @@ using namespace std;
 
 int main() {
 
-	BankSystem Run;
-	
+	BankSystem system;
+	system.Run();
 }
