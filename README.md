@@ -48,4 +48,9 @@ https://lucid.app/lucidchart/89be0f55-ee72-4b4b-8278-2d927c186ad5/edit?invitatio
 
   ![image](https://github.com/EslamAymann22/BankSystem/assets/145445476/81fb5030-d774-4493-b65e-7ac77a51327f)
 
+  * #### database :
+
+       ![image](https://github.com/EslamAymann22/BankSystem/assets/145445476/75d91f2b-f5cb-40a8-8c09-7b234d75d64b)
+
+
 
