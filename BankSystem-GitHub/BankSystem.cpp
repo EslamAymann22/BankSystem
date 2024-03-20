@@ -194,12 +194,14 @@ BankSystem::BankSystem() {
 void BankSystem::Run() {
 	int cur_id = -1;
 	while (true) {
+		DownloadData();
 		while (cur_id < 0) {
 			cout << "LogIn  : 1\n";
 			cout << "SignUp : 2\n";
 			cout << "Exit   : 3\n";
 			int op;
 			cout << "Enter : "; cin >> op;
+			DownloadData();
 			if (op == 1) {
 				cur_id = AccSer.LogIn(accounts);
 				if (cur_id == -1) {
@@ -213,19 +215,22 @@ void BankSystem::Run() {
 				return;
 			}
 			else cout << "ERROR!!\n";
+			UploadData();
 		}
 
-		cout << "1 : Send money \n";
-		cout << "2 : Change default card in account \n";
-		cout << "3 : Add visa card \n";
-		cout << "4 : Add master card \n";
-		cout << "5 : Remove card \n";
-		cout << "6 : Show cards data \n";
-		cout << "7 : Show my trans in card\n";
-		cout << "8 : Change Card PIN\n";
-		cout << "9 : Log Out\n";
+		cout << " 1 : Send money \n";
+		cout << " 2 : Change default card in account \n";
+		cout << " 3 : Add visa card \n";
+		cout << " 4 : Add master card \n";
+		cout << " 5 : Remove card \n";
+		cout << " 6 : Show cards data \n";
+		cout << " 7 : Show my trans in card\n";
+		cout << " 8 : Change Card PIN\n";
+		cout << " 9 : Log Out\n";
+		cout << "10 : Exit!!\n";
 		int op;
 		cout << "Enter number in range 1 - 9 "; cin >> op;
+		DownloadData();
 		if (op == 1) {
 			CardSer.SendMony(accounts[cur_id], accounts, operations, visacards, mastercards);
 		}
@@ -253,7 +258,9 @@ void BankSystem::Run() {
 		else if (op == 9) {
 			cur_id = -1;
 		}
+		else if (op == 10)break;
 		else cout << "ERROR!!\n";
 		UploadData();
 	}
+	UploadData();
 }
