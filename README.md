@@ -4,6 +4,18 @@ I tried to use some of topics of OOP.
 UML of System :
 https://lucid.app/lucidchart/89be0f55-ee72-4b4b-8278-2d927c186ad5/edit?invitationId=inv_0d667851-c390-4814-95fa-72d0efdad17f&page=0_0#
 ![image](https://github.com/EslamAymann22/BankSystem/assets/145445476/55ce3719-e4dc-4779-a561-da41671d8b3e)
+
+## 📌 Features
+- **Account Management**: Create accounts and manage multiple cards, including MasterCard and Visa cards.
+- **Funds Transfer**: Transfer funds between Visa cards using their card numbers.
+- **Primary Card**: Each account has a primary card for receiving funds, with full control over it.
+- **Card Management**: Add or delete multiple cards for an account.
+- **Password Management**: Change account password for enhanced security.
+
+## 🛠️ Technologies Used
+- **Programming Language**: C++
+- **Concepts Applied**: Object-Oriented Programming (OOP), File Handling
+
 # OOP topics used :
 * #### Inheritance :
   ![image](https://github.com/EslamAymann22/BankSystem/assets/145445476/367be710-5e33-4645-8b04-2eddb2fe3334)![image](https://github.com/EslamAymann22/BankSystem/assets/145445476/04ef3e05-b400-40e0-bf63-63fe9f73fb10)
